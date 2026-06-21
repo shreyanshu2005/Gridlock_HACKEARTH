@@ -32,7 +32,7 @@
 
 <br>
 
-🚀 [Quick Start](#-how-to-run-this-project) · 🏗️ [Architecture](#%EF%B8%8F-system-architecture) · ✨ [Capabilities](#-key-capabilities) · 🔌 [API](#-api-endpoints) · 🗺️ [Roadmap](#-future-roadmap)
+ [Quick Start](#-how-to-run-this-project) ·  [Architecture](#%EF%B8%8F-system-architecture) ·  [Capabilities](#-key-capabilities) ·  [API](#-api-endpoints) ·  [Roadmap](#-future-roadmap)
 
 <br>
 
@@ -48,9 +48,9 @@
 
 Imagine a political rally, a cricket match, a festival, or a sudden road-closure for construction. Within minutes, the roads around it choke up. Today, in most cities — including Bengaluru — here's what actually happens:
 
-- 🤷 **Nobody knows in advance** how bad the jam will be.
-- 👮 **Police deployment is guesswork**, based on a senior officer's memory of "last time."
-- 🧠 **Nothing is learned afterward.** The next event starts from zero, all over again.
+-  **Nobody knows in advance** how bad the jam will be.
+-  **Police deployment is guesswork**, based on a senior officer's memory of "last time."
+-  **Nothing is learned afterward.** The next event starts from zero, all over again.
 
 ### The Official Challenge Statement
 
@@ -65,7 +65,7 @@ Imagine a political rally, a cricket match, a festival, or a sudden road-closure
 Think of BTIP as a traffic command centre that doesn't just *watch* the city — it *predicts*, *plans*, *tests*, and *remembers*.
 
 ```text
-   📅 EVENT HAPPENS              🤖 SYSTEM THINKS                 👮 POLICE ACT              📚 SYSTEM LEARNS
+     EVENT HAPPENS                SYSTEM THINKS                  POLICE ACT               SYSTEM LEARNS
   (rally / match / festival)    (forecast the damage)         (deploy the plan)         (check what really happened)
 
         Register/Detect    →    Forecast Impact     →    Generate Response Plan   →    Validate in Digital Twin
@@ -98,11 +98,11 @@ In short: **BTIP doesn't just show you a traffic jam. It tells you the jam is *a
 
 ---
 
-## 🎬 How It Works — The Full Journey of One Event
+##  How It Works — The Full Journey of One Event
 
 Here's exactly what happens, told as a story, from the moment an event is known about to the moment the system gets smarter for next time.
 
-### Step 1 — 📋 An Event Appears (Planned or Unplanned)
+### Step 1 —  An Event Appears (Planned or Unplanned)
 
 **Planned events** are things we already know about ahead of time: a cricket match, a political rally, a festival, a concert, road construction, a VIP convoy, a protest. We feed in the venue, expected crowd size, start/end time, and parking capacity.
 
@@ -111,7 +111,7 @@ Here's exactly what happens, told as a story, from the moment an event is known 
 > 🖼️ **[ADD IMAGE HERE — #2: EVENT COMMAND CENTRE]**
 > Screenshot of `#/events` — the page listing planned + unplanned events with risk ranking.
 
-### Step 2 — 🔮 Forecasting the Damage Before It Happens
+### Step 2 —  Forecasting the Damage Before It Happens
 
 This is the heart of the project. Before the event even starts, BTIP answers:
 
@@ -122,14 +122,14 @@ It calculates things like: how many extra vehicles will flood in, how many junct
 > 🖼️ **[ADD IMAGE HERE — #3: EVENT IMPACT FORECAST]**
 > Screenshot of the forecast numbers/cards — Event Impact Index, delay, queue length, recovery time.
 
-### Step 3 — 🛰️ Seeing It On a Real Map
+### Step 3 —  Seeing It On a Real Map
 
 All of this is shown on an actual satellite map of Bengaluru — the event location, which roads will choke, and which roads will stay clear as recovery routes.
 
 > 🖼️ **[ADD IMAGE HERE — #4: EVENT IMPACT SATELLITE MAP]**
 > Screenshot of `#/event-map` showing venue, footprint, and predicted congestion spread on the satellite layer.
 
-### Step 4 — 👮 Turning the Forecast Into an Action Plan
+### Step 4 —  Turning the Forecast Into an Action Plan
 
 Knowing the problem is only half the job. BTIP converts the forecast straight into a field-ready plan:
 
@@ -144,20 +144,20 @@ Knowing the problem is only half the job. BTIP converts the forecast straight in
 > 🖼️ **[ADD IMAGE HERE — #5: OPERATIONAL RESPONSE PLAN]**
 > Screenshot of `#/event-plan` showing manpower/barricade/diversion plan cards.
 
-### Step 5 — 🧪 Testing the Plan Before Trusting It (Digital Twin)
+### Step 5 —  Testing the Plan Before Trusting It (Digital Twin)
 
 Before anyone acts on it, BTIP runs a **digital twin** — basically a simulation — comparing three "what if" scenarios side by side:
 
-1. 🚫 **No Plan** — what happens if nobody intervenes
-2. 🧓 **Experience-Based Plan** — what a senior officer would do from memory
-3. 🤖 **AI-Recommended Plan** — BTIP's optimized plan
+1.  **No Plan** — what happens if nobody intervenes
+2.  **Experience-Based Plan** — what a senior officer would do from memory
+3.  **AI-Recommended Plan** — BTIP's optimized plan
 
 This is the single most convincing screen in the whole project, because it visually proves *why* the AI plan is better — lower delay, shorter queues, faster recovery — before a single officer is deployed.
 
 > 🖼️ **[ADD IMAGE HERE — #6: EVENT DIGITAL TWIN COMPARISON]**
 > Screenshot of `#/event-twin` — the three-way comparison view (No Plan vs Experience vs AI Plan).
 
-### Step 6 — 📊 Did It Actually Work? (Post-Event Learning)
+### Step 6 —  Did It Actually Work? (Post-Event Learning)
 
 After the event ends, BTIP compares its predictions against what *actually* happened: was the crowd bigger or smaller than expected? Was the delay worse or better? Were enough officers deployed?
 
@@ -166,7 +166,7 @@ From these gaps, it automatically generates **learning actions** — concrete no
 > 🖼️ **[ADD IMAGE HERE — #7: POST-EVENT LEARNING]**
 > Screenshot of `#/post-event` showing predicted-vs-actual comparison and generated learnings.
 
-### Step 7 — ⏪ Proving It Works on Past Events (Historical Replay)
+### Step 7 —  Proving It Works on Past Events (Historical Replay)
 
 To prove this isn't smoke and mirrors, BTIP can "rewind time": it picks a past event, hides the real outcome, generates a forecast and plan using *only* the data available before the event happened, and then reveals the real outcome for comparison.
 
@@ -175,7 +175,7 @@ To prove this isn't smoke and mirrors, BTIP can "rewind time": it picks a past e
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 > 🖼️ **[ADD IMAGE HERE — #9 (OPTIONAL): HAND-DRAWN OR EXPORTED ARCHITECTURE DIAGRAM]**
 > If you have a custom-designed architecture diagram (e.g. from Figma/Excalidraw), paste it here as well. The diagram below is a text-based Mermaid version that also renders directly on GitHub — styled for dark backgrounds so labels stay readable.
@@ -192,13 +192,13 @@ To prove this isn't smoke and mirrors, BTIP can "rewind time": it picks a past e
   'fontSize':'15px'
 }}}%%
 flowchart TB
-    subgraph SRC["📡 DATA SOURCES"]
+    subgraph SRC[" DATA SOURCES"]
         A1["Historical Traffic<br/>& Violation Data"]
         A2["Event Metadata<br/>venue · attendance · type · weather"]
         A3["Real-Time Anomaly Signals<br/>speed drop · occupancy · crowd estimate"]
     end
 
-    subgraph CORE["🧠 BTIP INTELLIGENCE CORE — FASTAPI BACKEND"]
+    subgraph CORE[" BTIP INTELLIGENCE CORE — FASTAPI BACKEND"]
         B1["Event Service<br/>Impact Forecast Engine"]
         B2["ML Models<br/>LightGBM · XGBoost · Prophet · LSTM · HDBSCAN · SHAP"]
         B3["Manpower Optimizer<br/>PuLP ILP"]
@@ -207,13 +207,13 @@ flowchart TB
         B6["Post-Event Learning<br/>Engine"]
     end
 
-    subgraph STORE["💾 DATA & MODEL LAYER"]
+    subgraph STORE[" DATA & MODEL LAYER"]
         C1[("Processed<br/>Feature Store")]
         C2[("Trained Model<br/>Artefacts")]
         C3[("Event & Replay<br/>Records")]
     end
 
-    subgraph UI["🖥️ FRONTEND — SATELLITE COMMAND CENTRE"]
+    subgraph UI[" FRONTEND — SATELLITE COMMAND CENTRE"]
         D1["Event Command<br/>Centre"]
         D2["Event Impact<br/>Satellite Map"]
         D3["Operational Response<br/>Plan View"]
@@ -223,10 +223,10 @@ flowchart TB
         D7["Judge Tour<br/>Guide"]
     end
 
-    subgraph USERS["👥 ROLES"]
-        E1["👑 Commander<br/>full control"]
-        E2["🔍 Analyst<br/>forecasts & learning"]
-        E3["👮 Officer<br/>field deployment view"]
+    subgraph USERS[" ROLES"]
+        E1[" Commander<br/>full control"]
+        E2[" Analyst<br/>forecasts & learning"]
+        E3[" Officer<br/>field deployment view"]
     end
 
     A1 --> B1
@@ -281,7 +281,7 @@ flowchart TB
 | 🔵 Intelligence Core | Blue | FastAPI backend — forecasting, optimization, simulation, learning |
 | 🟣 Data & Model Layer | Purple | Persisted feature store, trained models, event records |
 | 🟢 Frontend | Green | The satellite-map command centre screens judges interact with |
-| 🌸 Roles | Pink | Commander, Analyst, Officer — who sees what |
+| 🟠 Roles | Pink | Commander, Analyst, Officer — who sees what |
 
 ---
 
@@ -306,7 +306,7 @@ This section is a single gallery checklist — drop one screenshot per row as yo
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 Everything below is grouped by *what it's there to do*, not just its name — useful for explaining to non-technical judges.
 
@@ -345,43 +345,43 @@ Everything below is grouped by *what it's there to do*, not just its name — us
 
 ---
 
-## ✨ Key Capabilities
+##  Key Capabilities
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🆕 Event-Driven Congestion Module
+###  Event-Driven Congestion Module
 *(this is the project's main focus)*
 
-- 🎪 Event Command Centre
-- 🔮 Event Impact Forecast
-- 🛰️ Event Impact Satellite Map
-- 📋 Operational Response Plan
-- 🚧 Barricade Planning
-- 🔀 Diversion Planning
-- 🚑 Emergency Corridor Protection
-- 🧪 Event Digital Twin
-- 📚 Post-Event Learning
-- ⏪ Historical Event Replay
-- 🚨 Unplanned Gathering Detection
-- 🧑‍⚖️ Full Event Judge Tour
+-  Event Command Centre
+-  Event Impact Forecast
+-  Event Impact Satellite Map
+-  Operational Response Plan
+-  Barricade Planning
+-  Diversion Planning
+-  Emergency Corridor Protection
+-  Event Digital Twin
+-  Post-Event Learning
+-  Historical Event Replay
+-  Unplanned Gathering Detection
+-  Full Event Judge Tour
 
 </td>
 <td width="50%" valign="top">
 
-### 🧱 Supporting Traffic Intelligence
+###  Supporting Traffic Intelligence
 *(the foundation it's built on)*
 
-- 🏙️ Executive City Overview
-- 🛰️ Live Satellite Traffic Heatmap
-- 📍 Hotspot Detection
-- 📈 Risk Forecasting
-- 👮 Patrol Recommendation
-- 🧪 General Digital-Twin Simulation
-- 🔍 SHAP-Style Explainability
-- 🔐 JWT Role-Based Login
-- 🔌 REST + GraphQL APIs
+-  Executive City Overview
+-  Live Satellite Traffic Heatmap
+-  Hotspot Detection
+-  Risk Forecasting
+-  Patrol Recommendation
+-  General Digital-Twin Simulation
+-  SHAP-Style Explainability
+-  JWT Role-Based Login
+-  REST + GraphQL APIs
 
 </td>
 </tr>
@@ -389,7 +389,7 @@ Everything below is grouped by *what it's there to do*, not just its name — us
 
 ---
 
-## 🚀 How to Run This Project
+##  How to Run This Project
 
 ### macOS / Linux
 ```bash
@@ -413,17 +413,18 @@ http://127.0.0.1:8000/#/events
 
 ---
 
-## 🔑 Demo Credentials
+##  Demo Credentials
+Work In Progress
 
 | Role | Username | Password | Best For |
 |---|---|---|---|
-| 👑 Commander | `commander` | `gridlock2026` | **Recommended** — shows everything: planning, simulation, verification |
-| 🔍 Analyst | `analyst` | `analyse2026` | Forecasts, hotspots, event impact, learning |
-| 👮 Officer | `officer` | `patrol2026` | Field-level heatmap and deployment view |
+|  Commander | `commander` | `gridlock2026` | **Recommended** — shows everything: planning, simulation, verification |
+|  Analyst | `analyst` | `analyse2026` | Forecasts, hotspots, event impact, learning |
+|  Officer | `officer` | `patrol2026` | Field-level heatmap and deployment view |
 
 ---
 
-## 🎤 Recommended 5-Minute Judge Walkthrough
+##  Recommended 5-Minute Judge Walkthrough
 
 1. **Open** `http://127.0.0.1:8000/#/events`, log in as **Commander**, start the **Judge Tour**.
 2. **Event Command Centre** → "Here are the events that could stress the road network, ranked by expected impact."
@@ -438,7 +439,7 @@ http://127.0.0.1:8000/#/events
 
 ---
 
-## ✅ How BTIP Maps to the Problem Statement
+##  How BTIP Maps to the Problem Statement
 
 | Problem Statement Asked For | BTIP Delivers |
 |---|---|
@@ -455,35 +456,35 @@ http://127.0.0.1:8000/#/events
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
-> 🖼️ **[ADD LINK HERE]** — Insert the dataset link provided for the hackathon problem statement.
+> 🖼️ **[Dataset link]** 
 
 ```text
-Dataset Link: [ADD LINK HERE]
+Dataset Link: [https://uc.hackerearth.com/he-public-ap-south-1/jan%20to%20may%20police%20violation_anonymized791b166.csv]
 ```
 
 **Note on data:** A complete event-labelled historical dataset was not available out of the box, so the event-impact module combines existing traffic/risk/congestion intelligence with event metadata (attendance, type, transport share, weather). The system is designed so real, verified event records can be added later through the Event and Post-Event APIs to keep improving accuracy over time.
 
 ---
 
-## 🔭 Future Roadmap
+##  Future Roadmap
 
-- 📶 Integrate live traffic-speed APIs for true real-time forecasting
-- 🚓 Ingest police event-permission records automatically
-- 🎟️ Pull crowd-size estimates from stadium ticketing systems
-- 📷 Add CCTV-based crowd and queue detection
-- 🚌 Model bus/metro schedule impact during events
-- 🌧️ Integrate live weather warnings into the forecast
-- 🗺️ Add route-level evacuation logic for emergencies
-- 🔄 Support multiple overlapping events at once
-- 🧠 Retrain the event-impact model from verified outcomes over time
+-  Integrate live traffic-speed APIs for true real-time forecasting
+-  Ingest police event-permission records automatically
+-  Pull crowd-size estimates from stadium ticketing systems
+-  Add CCTV-based crowd and queue detection
+-  Model bus/metro schedule impact during events
+-  Integrate live weather warnings into the forecast
+-  Add route-level evacuation logic for emergencies
+-  Support multiple overlapping events at once
+-  Retrain the event-impact model from verified outcomes over time
 
 ---
 
 <div align="center">
 
-### 🏁 Closing Statement
+###  Closing Statement
 
 **BTIP forecasts event-related traffic impact, identifies affected corridors, recommends manpower, barricading and diversion plans, validates the response through a digital twin, and learns from actual post-event outcomes.**
 
