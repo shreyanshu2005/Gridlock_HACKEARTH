@@ -36,9 +36,7 @@
 
 <br>
 
-> 🖼️ **[ADD IMAGE HERE — #1: HERO BANNER]**
-> A wide banner screenshot of the BTIP dashboard / satellite map in action.
-> *Recommended: 1600×600px, the most visually striking screen you have (Event Impact Map or Executive Overview).*
+![BTIP Executive Overview — Live Operational Map with Zones Needing Attention ranking](images/01-hero-overview.png)
 
 </div>
 
@@ -86,7 +84,7 @@ In short: **BTIP doesn't just show you a traffic jam. It tells you the jam is *a
 1. [Why This Matters](#-the-problem-in-plain-english)
 2. [How It Works — Step by Step](#-how-it-works--the-full-journey-of-one-event)
 3. [System Architecture](#%EF%B8%8F-system-architecture)
-4. [Screens & Visual Tour](#-screens--visual-tour-add-screenshots-here)
+4. [Screens & Visual Tour](#-screens--visual-tour)
 5. [Technology Stack](#-technology-stack)
 6. [Key Capabilities](#-key-capabilities)
 7. [How to Run This Project](#-how-to-run-this-project)
@@ -108,8 +106,9 @@ Here's exactly what happens, told as a story, from the moment an event is known 
 
 **Unplanned events** are gatherings nobody scheduled — a sudden crowd, an accident, a flash protest. BTIP catches these by noticing *abnormal signals*: traffic suddenly slowing down, more vehicles parked than usual, a spike in control-room calls. Think of it like a smoke detector for traffic — it doesn't need someone to tell it there's a fire.
 
-> 🖼️ **[ADD IMAGE HERE — #2: EVENT COMMAND CENTRE]**
-> Screenshot of `#/events` — the page listing planned + unplanned events with risk ranking.
+![Event Command Centre — City Event Queue ranked by expected impact](images/02-event-command-centre.png)
+*The City Event Queue, showing every planned event — like Bengaluru Football Night — ranked by expected crowd size and impact.*
+
 
 ### Step 2 —  Forecasting the Damage Before It Happens
 
@@ -119,15 +118,17 @@ This is the heart of the project. Before the event even starts, BTIP answers:
 
 It calculates things like: how many extra vehicles will flood in, how many junctions and roads will be affected, how much extra delay drivers will face, how long queues will get, and how long the area will take to recover afterward — all *before* a single person has arrived at the venue.
 
-> 🖼️ **[ADD IMAGE HERE — #3: EVENT IMPACT FORECAST]**
-> Screenshot of the forecast numbers/cards — Event Impact Index, delay, queue length, recovery time.
+![Event Impact Forecast — arrival, event and departure waves with affected corridors](images/03-event-impact-forecast.png)
+*The forecast view: the arrival/event/departure traffic wave alongside every corridor expected to be affected, ranked by impact score.*
+
 
 ### Step 3 —  Seeing It On a Real Map
 
 All of this is shown on an actual satellite map of Bengaluru — the event location, which roads will choke, and which roads will stay clear as recovery routes.
 
-> 🖼️ **[ADD IMAGE HERE — #4: EVENT IMPACT SATELLITE MAP]**
-> Screenshot of `#/event-map` showing venue, footprint, and predicted congestion spread on the satellite layer.
+![Event Impact Satellite Map — venue footprint and predicted congestion spread](images/04-event-impact-satellite-map.png)
+*The Event Impact Index on a live satellite map: the venue, the affected junctions, and the recovery corridors that stay clear.*
+
 
 ### Step 4 —  Turning the Forecast Into an Action Plan
 
@@ -141,8 +142,9 @@ Knowing the problem is only half the job. BTIP converts the forecast straight in
 | **Emergency corridors** | Roads that must always stay open for ambulances/fire trucks |
 | **Towing & rapid response** | Backup resources for breakdowns or incidents |
 
-> 🖼️ **[ADD IMAGE HERE — #5: OPERATIONAL RESPONSE PLAN]**
-> Screenshot of `#/event-plan` showing manpower/barricade/diversion plan cards.
+![Operational Response Plan — manpower allocation deployed where impact is greatest](images/05-operational-response-plan.png)
+*The field-ready plan: officers, barricade teams, and tow/rapid-response resources, allocated to the junctions under the most pressure.*
+
 
 ### Step 5 —  Testing the Plan Before Trusting It (Digital Twin)
 
@@ -154,8 +156,9 @@ Before anyone acts on it, BTIP runs a **digital twin** — basically a simulatio
 
 This is the single most convincing screen in the whole project, because it visually proves *why* the AI plan is better — lower delay, shorter queues, faster recovery — before a single officer is deployed.
 
-> 🖼️ **[ADD IMAGE HERE — #6: EVENT DIGITAL TWIN COMPARISON]**
-> Screenshot of `#/event-twin` — the three-way comparison view (No Plan vs Experience vs AI Plan).
+![Event Digital Twin — No Plan vs Experience Plan vs AI Plan comparison](images/06-event-digital-twin.png)
+*The proof screen: No Action vs an Experience-based plan vs the AI plan, compared on delay, queue length, and recovery time.*
+
 
 ### Step 6 —  Did It Actually Work? (Post-Event Learning)
 
@@ -163,22 +166,23 @@ After the event ends, BTIP compares its predictions against what *actually* happ
 
 From these gaps, it automatically generates **learning actions** — concrete notes like *"activate diversions 20 minutes earlier next time"* or *"add staff to the exit corridor."*
 
-> 🖼️ **[ADD IMAGE HERE — #7: POST-EVENT LEARNING]**
-> Screenshot of `#/post-event` showing predicted-vs-actual comparison and generated learnings.
+![Post-Event Learning — forecast vs observed outcome with generated learning actions](images/07-post-event-learning.png)
+*Forecast vs what actually happened, plus the concrete learning actions BTIP generates from the gap between them.*
+
 
 ### Step 7 —  Proving It Works on Past Events (Historical Replay)
 
 To prove this isn't smoke and mirrors, BTIP can "rewind time": it picks a past event, hides the real outcome, generates a forecast and plan using *only* the data available before the event happened, and then reveals the real outcome for comparison.
 
-> 🖼️ **[ADD IMAGE HERE — #8: HISTORICAL EVENT REPLAY]**
-> Screenshot of `#/event-replay` — before and after clicking "Reveal Actual Outcome."
+![Historical Event Replay — forecast frozen before the event, ready to reveal the real outcome](images/08-historical-event-replay.png)
+*Time rewound: the plan is generated using only pre-event data, then the real outcome is revealed for verification.*
+
 
 ---
 
 ##  System Architecture
 
-> 🖼️ **[ADD IMAGE HERE — #9 (OPTIONAL): HAND-DRAWN OR EXPORTED ARCHITECTURE DIAGRAM]**
-> If you have a custom-designed architecture diagram (e.g. from Figma/Excalidraw), paste it here as well. The diagram below is a text-based Mermaid version that also renders directly on GitHub — styled for dark backgrounds so labels stay readable.
+The diagram below is a Mermaid flowchart that renders directly on GitHub, styled for dark backgrounds so labels stay readable.
 
 ```mermaid
 %%{init: {'theme':'base', 'themeVariables': {
@@ -285,24 +289,21 @@ flowchart TB
 
 ---
 
-## 🖼️ Screens & Visual Tour (Add Screenshots Here)
+## 🖼️ Screens & Visual Tour
 
-This section is a single gallery checklist — drop one screenshot per row as you capture them. Keeping every image in one place makes the README easy to scan for judges who skim before reading.
+A quick gallery of every captured screen, in the order a judge would naturally walk through the product.
 
-| # | Screen | Route | What to Capture |
+| # | Screen | Route | What's Captured |
 |---|---|---|---|
-| 🟧 1 | Hero banner | — | Your single best, most visually impressive screen |
-| 🟧 2 | Event Command Centre | `#/events` | List of planned + unplanned events, ranked by impact |
-| 🟧 3 | Event Impact Forecast | `#/events` (forecast panel) | The Event Impact Index and key numbers |
-| 🟧 4 | Event Impact Satellite Map | `#/event-map` | Venue + footprint + congestion spread on satellite view |
-| 🟧 5 | Operational Response Plan | `#/event-plan` | Manpower, barricade & diversion plan cards |
-| 🟧 6 | Event Digital Twin | `#/event-twin` | No Plan vs Experience Plan vs AI Plan comparison |
-| 🟧 7 | Post-Event Learning | `#/post-event` | Predicted vs actual outcomes + learning actions |
-| 🟧 8 | Historical Event Replay | `#/event-replay` | Before / after "Reveal Actual Outcome" |
-| ⬜ 9 | *(Optional)* Executive Overview | `#/overview` | City-level operating picture (legacy BTIP) |
-| ⬜ 10 | *(Optional)* Live Heatmap | `#/heatmap` | Density/risk/congestion satellite layers (legacy BTIP) |
+| ✅ 1 | Hero banner / Executive Overview | `#/overview` | Live Operational Map + Zones Needing Attention ranking |
+| ✅ 2 | Event Command Centre | `#/events` | List of planned + unplanned events, ranked by impact |
+| ✅ 3 | Event Impact Forecast | `#/events` (forecast panel) | Arrival/event/departure waves + affected corridors |
+| ✅ 4 | Event Impact Satellite Map | `#/event-map` | Venue + footprint + congestion spread on satellite view |
+| ✅ 5 | Operational Response Plan | `#/event-plan` | Manpower, barricade & diversion plan cards |
+| ✅ 6 | Event Digital Twin | `#/event-twin` | No Plan vs Experience Plan vs AI Plan comparison |
+| ✅ 7 | Post-Event Learning | `#/post-event` | Predicted vs actual outcomes + learning actions |
+| ✅ 8 | Historical Event Replay | `#/event-replay` | Before / after "Reveal Actual Outcome" |
 
-> **Tip for a non-technical audience:** Under each screenshot, add one plain-English sentence explaining what the viewer is looking at — like the captions used in the "How It Works" section above. Avoid jargon like "ILP optimizer" or "HDBSCAN clustering" in captions; save the technical terms for the Technology Stack section below.
 
 ---
 
@@ -489,9 +490,5 @@ Dataset Link: [https://uc.hackerearth.com/he-public-ap-south-1/jan%20to%20may%20
 **BTIP forecasts event-related traffic impact, identifies affected corridors, recommends manpower, barricading and diversion plans, validates the response through a digital twin, and learns from actual post-event outcomes.**
 
 *Unlike a normal dashboard, BTIP closes the loop — it doesn't just show congestion, it predicts, plans, simulates, verifies, and learns.*
-
-<br>
-
-> 🖼️ **[ADD IMAGE HERE — #10 (OPTIONAL): TEAM PHOTO / LOGO]**
 
 </div>
