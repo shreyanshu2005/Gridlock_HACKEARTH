@@ -1,0 +1,178 @@
+[
+  {
+    "junction_id": "BTP051",
+    "name": "Silk Board",
+    "zone": "South-East",
+    "station": "Madiwala",
+    "lat": 12.9177,
+    "lng": 77.6233,
+    "base": 1.48,
+    "persistence": 0.94,
+    "cluster_id": 0
+  },
+  {
+    "junction_id": "BTP082",
+    "name": "Bellandur",
+    "zone": "East",
+    "station": "Bellandur",
+    "lat": 12.9258,
+    "lng": 77.6761,
+    "base": 1.4,
+    "persistence": 0.91,
+    "cluster_id": 1
+  },
+  {
+    "junction_id": "BTP040",
+    "name": "Hebbal Flyover",
+    "zone": "North",
+    "station": "Hebbala",
+    "lat": 13.0358,
+    "lng": 77.597,
+    "base": 1.34,
+    "persistence": 0.9,
+    "cluster_id": 2
+  },
+  {
+    "junction_id": "BTP044",
+    "name": "Tin Factory",
+    "zone": "East",
+    "station": "K.R. Pura",
+    "lat": 13.0006,
+    "lng": 77.6702,
+    "base": 1.29,
+    "persistence": 0.87,
+    "cluster_id": 3
+  },
+  {
+    "junction_id": "BTP211",
+    "name": "KR Puram",
+    "zone": "East",
+    "station": "K.R. Pura",
+    "lat": 13.0098,
+    "lng": 77.6952,
+    "base": 1.24,
+    "persistence": 0.85,
+    "cluster_id": 4
+  },
+  {
+    "junction_id": "BTP058",
+    "name": "Marathahalli",
+    "zone": "East",
+    "station": "HAL Old Airport",
+    "lat": 12.9591,
+    "lng": 77.6974,
+    "base": 1.2,
+    "persistence": 0.82,
+    "cluster_id": 5
+  },
+  {
+    "junction_id": "BTP027",
+    "name": "Dairy Circle",
+    "zone": "South",
+    "station": "Adugodi",
+    "lat": 12.9347,
+    "lng": 77.6062,
+    "base": 1.14,
+    "persistence": 0.78,
+    "cluster_id": 6
+  },
+  {
+    "junction_id": "BTP020",
+    "name": "Mekhri Circle",
+    "zone": "North",
+    "station": "High ground",
+    "lat": 13.0146,
+    "lng": 77.5834,
+    "base": 1.09,
+    "persistence": 0.8,
+    "cluster_id": 7
+  },
+  {
+    "junction_id": "BTP057",
+    "name": "Majestic",
+    "zone": "Central",
+    "station": "City Market",
+    "lat": 12.9767,
+    "lng": 77.5713,
+    "base": 1.08,
+    "persistence": 0.88,
+    "cluster_id": 8
+  },
+  {
+    "junction_id": "BTP080",
+    "name": "Trinity Circle",
+    "zone": "Central",
+    "station": "Halasur",
+    "lat": 12.9737,
+    "lng": 77.6199,
+    "base": 1.02,
+    "persistence": 0.74,
+    "cluster_id": 9
+  },
+  {
+    "junction_id": "BTP045",
+    "name": "Jayadeva",
+    "zone": "South",
+    "station": "Jayanagara",
+    "lat": 12.9166,
+    "lng": 77.6,
+    "base": 0.98,
+    "persistence": 0.73,
+    "cluster_id": 10
+  },
+  {
+    "junction_id": "BTP001",
+    "name": "Corporation Circle",
+    "zone": "Central",
+    "station": "Cubbon Park",
+    "lat": 12.9661,
+    "lng": 77.5884,
+    "base": 0.94,
+    "persistence": 0.71,
+    "cluster_id": 11
+  },
+  {
+    "junction_id": "BTP083",
+    "name": "Yeshwanthpur",
+    "zone": "West",
+    "station": "Yeshwanthpura",
+    "lat": 13.028,
+    "lng": 77.539,
+    "base": 0.89,
+    "persistence": 0.67,
+    "cluster_id": 12
+  },
+  {
+    "junction_id": "BTP032",
+    "name": "Nayandahalli",
+    "zone": "West",
+    "station": "Byatarayanapura",
+    "lat": 12.9422,
+    "lng": 77.5212,
+    "base": 0.84,
+    "persistence": 0.62,
+    "cluster_id": 13
+  },
+  {
+    "junction_id": "BTP016",
+    "name": "Banashankari",
+    "zone": "South-West",
+    "station": "Banashankari",
+    "lat": 12.9255,
+    "lng": 77.5468,
+    "base": 0.81,
+    "persistence": 0.58,
+    "cluster_id": 14
+  },
+  {
+    "junction_id": "BTP099",
+    "name": "Electronic City",
+    "zone": "South-East",
+    "station": "Electronic City",
+    "lat": 12.8399,
+    "lng": 77.677,
+    "base": 0.92,
+    "persistence": 0.64,
+    "cluster_id": 15
+  }
+]

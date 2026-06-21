@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#dff5ff" />
+  <meta name="description" content="BTIP — Bengaluru Traffic Intelligence Platform. Detect, predict, simulate and act." />
+  <title>BTIP — Bengaluru Traffic Intelligence Platform</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/event-intelligence.css" />
+</head>
+<body>
+  <svg class="svg-defs" aria-hidden="true" width="0" height="0">
+    <filter id="roughEdge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" seed="7" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="paperNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.78" numOctaves="3" seed="8" stitchTiles="stitch" result="noise" />
+      <feColorMatrix in="noise" type="saturate" values="0" />
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.09" /></feComponentTransfer>
+    </filter>
+  </svg>
+
+  <div class="boot-screen" id="bootScreen" aria-live="polite">
+    <div class="boot-orbit"><span></span><span></span><span></span></div>
+    <p>CONNECTING BENGALURU</p>
+    <strong><span id="bootPercent">00</span>%</strong>
+    <div class="boot-line"><i id="bootLine"></i></div>
+  </div>
+
+  <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <div class="cursor-orbit" id="cursorOrbit" aria-hidden="true"></div>
+  <div class="page-curtain" id="pageCurtain" aria-hidden="true"><span>BTIP</span></div>
+
+  <div class="incident-ticker" aria-label="Live city events">
+    <div class="ticker-track" id="tickerTrack">
+      <span><b>18:42</b> Silk Board pressure +18%</span><i>✦</i>
+      <span><b>18:39</b> Bellandur prediction confidence 91%</span><i>✦</i>
+      <span><b>18:36</b> 20-officer scenario reduced projected violations 29.7%</span><i>✦</i>
+      <span><b>18:31</b> Hebbal corridor moved from critical to high</span><i>✦</i>
+      <span><b>18:42</b> Silk Board pressure +18%</span><i>✦</i>
+      <span><b>18:39</b> Bellandur prediction confidence 91%</span><i>✦</i>
+      <span><b>18:36</b> 20-officer scenario reduced projected violations 29.7%</span><i>✦</i>
+      <span><b>18:31</b> Hebbal corridor moved from critical to high</span><i>✦</i>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <a href="#/overview" class="brand magnetic" aria-label="BTIP overview">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-copy"><strong>BTIP</strong><small>Bengaluru Traffic<br />Intelligence Platform</small></span>
+    </a>
+
+    <div class="city-status">
+      <span class="live-led"></span>
+      <div><small>LIVE CITY MODE</small><strong id="liveClock">--:--:--</strong></div>
+      <div class="status-divider"></div>
+      <div><small>NETWORK</small><strong id="apiStatus">CHECKING</strong></div>
+    </div>
+
+    <div class="top-actions">
+      <button class="icon-button" id="commandButton" type="button" aria-label="Open command palette"><span>⌘</span><small>K</small></button>
+      <button class="motion-button" id="motionToggle" type="button" aria-pressed="false"><i></i><span>Motion on</span></button>
+      <button class="operator-button magnetic" id="operatorButton" type="button">
+        <span class="operator-avatar" id="operatorAvatar">AR</span>
+        <span><small>OPERATOR</small><strong id="operatorName">Demo Commander</strong></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="side-rail" aria-label="Main pages">
+    <nav>
+      <a href="#/overview" data-route="overview" class="nav-item is-active"><span>01</span><i>◎</i><b>Overview</b></a>
+      <a href="#/heatmap" data-route="heatmap" class="nav-item"><span>02</span><i>⌁</i><b>Live Map</b></a>
+      <a href="#/hotspots" data-route="hotspots" class="nav-item"><span>03</span><i>◉</i><b>Hotspots</b></a>
+      <a href="#/forecast" data-route="forecast" class="nav-item"><span>04</span><i>↗</i><b>Forecast</b></a>
+      <a href="#/recommendations" data-route="recommendations" class="nav-item"><span>05</span><i>✦</i><b>Patrol</b></a>
+      <a href="#/simulation" data-route="simulation" class="nav-item"><span>06</span><i>◫</i><b>Simulation</b></a>
+    </nav>
+    <div class="rail-footer">
+      <button id="demoTourButton" type="button"><i>▶</i><span>Judge tour</span></button>
+      <small>GRIDLOCK 2.0<br />BUILD 01.06</small>
+    </div>
+  </aside>
+
+  <main class="app-shell" id="appShell">
+    <!-- OVERVIEW -->
+    <section class="app-page is-active" id="page-overview" data-page="overview">
+      <div class="page-intro overview-intro">
+        <div class="intro-copy">
+          <p class="chapter-label"><span>01</span> / EXECUTIVE OVERVIEW</p>
+          <h1>The city is <em>alive.</em><br />BTIP listens.</h1>
+          <p>298K+ traffic records become one operational loop: detect risk, predict pressure, test decisions and deploy smarter.</p>
+          <div class="intro-actions">
+            <a class="primary-cta magnetic" href="#/heatmap">Enter the live network <b>↘</b></a>
+            <button class="secondary-cta" type="button" id="explainSystem">How the loop works <b>＋</b></button>
+          </div>
+        </div>
+        <div class="hero-city" id="heroCity">
+          <canvas id="heroCanvas" aria-label="Animated Bengaluru traffic network"></canvas>
+          <div class="hero-planet" aria-hidden="true"><span class="courier">➤</span></div>
+          <div class="hero-card risk-card float-card">
+            <small>CITY RISK INDEX</small>
+            <div><strong id="heroRisk">72</strong><span>/100</span></div>
+            <p>Three corridors need attention before 19:20.</p>
+          </div>
+          <div class="hero-card refresh-card float-card">
+            <small>DECISION REFRESH</small><strong id="refreshMetric">1.8s</strong><i></i>
+          </div>
+          <div class="city-label label-a">HEBBAL</div>
+          <div class="city-label label-b">BELLANDUR</div>
+          <div class="city-label label-c">SILK BOARD</div>
+        </div>
+      </div>
+
+      <div class="loop-strip" aria-label="BTIP closed loop">
+        <span>DETECT</span><i>→</i><span>PREDICT</span><i>→</i><span>SCORE</span><i>→</i><span>RECOMMEND</span><i>→</i><span>SIMULATE</span><i>→</i><span>ACT</span><i>→</i><span>RE-LEARN</span>
+      </div>
+
+      <div class="kpi-grid" id="overviewKpis">
+        <article class="kpi-card tilt-card signal-orange"><small>VIOLATIONS TODAY</small><strong data-kpi="violations">—</strong><span data-kpi-delta="violations">Loading signal…</span><div class="spark-bars" id="violationsSpark"></div></article>
+        <article class="kpi-card tilt-card signal-yellow"><small>ACTIVE HOTSPOTS</small><strong data-kpi="hotspots">—</strong><span>structural + transient</span><div class="radar-mini"><i></i><i></i><i></i></div></article>
+        <article class="kpi-card tilt-card signal-blue"><small>OFFICERS DEPLOYED</small><strong data-kpi="officers">—</strong><span>across Bengaluru</span><div class="people-mini" aria-hidden="true">● ● ● ● ●</div></article>
+        <article class="kpi-card tilt-card signal-green"><small>CITY RISK</small><strong data-kpi="risk">—</strong><span>current shift average</span><div class="risk-gauge"><i></i></div></article>
+        <article class="kpi-card tilt-card signal-ink"><small>MODEL ACCURACY</small><strong data-kpi="accuracy">—</strong><span>rolling backtest</span><div class="accuracy-dots">●●●●●●●●●○</div></article>
+      </div>
+
+      <div class="overview-grid">
+        <article class="panel city-pulse-panel">
+          <div class="panel-head"><div><small>LIVE OPERATIONAL MAP</small><h2>Pressure before chaos.</h2></div><a href="#/heatmap">Open full map ↗</a></div>
+          <div id="overviewMap" class="network-map" aria-label="Live Bengaluru satellite risk map"></div>
+          <div class="map-layer-pills"><button class="is-active" data-overview-layer="risk">Risk</button><button data-overview-layer="violations">Violations</button><button data-overview-layer="flow">Traffic flow</button></div>
+          <button class="critical-callout" id="overviewCallout" type="button"><small>CRITICAL CORRIDOR</small><strong>Silk Board → Bellandur</strong><span>Risk rising 18% in 35 min <b>↗</b></span></button>
+        </article>
+
+        <article class="panel top-zones-panel">
+          <div class="panel-head"><div><small>LIVE RANKING</small><h2>Zones needing attention.</h2></div><span class="pulse-label"><i></i> updating</span></div>
+          <div class="zone-list" id="topZonesList"><div class="loading-lines"></div></div>
+          <div class="plain-language"><i>◎</i><p><b>In plain language:</b> repeat violations and road-network importance are overlapping at the top-ranked zones.</p></div>
+        </article>
+
+        <article class="panel trend-panel">
+          <div class="panel-head"><div><small>7-DAY SIGNAL</small><h2>Violation rhythm.</h2></div><span id="trendTotal">—</span></div>
+          <svg id="trendChart" class="chart-svg" viewBox="0 0 760 270" role="img" aria-label="Seven day violation trend"></svg>
+        </article>
+
+        <article class="panel offence-panel">
+          <div class="panel-head"><div><small>OFFENCE MIX</small><h2>What is driving pressure?</h2></div></div>
+          <div class="donut-wrap"><svg id="offenceDonut" viewBox="0 0 220 220"></svg><div class="donut-center"><strong>298K+</strong><span>records</span></div></div>
+          <div class="legend-list" id="offenceLegend"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HEATMAP -->
+    <section class="app-page" id="page-heatmap" data-page="heatmap">
+      <div class="page-title-row">
+        <div><p class="chapter-label"><span>02</span> / LIVE HEATMAP</p><h1>Follow the signal.</h1><p>Move through the city hour by hour. Every pulse is a decision waiting to happen.</p></div>
+        <div class="page-stat"><small>VISIBLE EVENTS</small><strong id="visibleEventCount">—</strong></div>
+      </div>
+
+      <div class="map-workspace">
+        <aside class="filter-panel panel-wobble">
+          <div class="filter-head"><span>MAP FILTERS</span><button id="resetFilters" type="button">RESET</button></div>
+          <label>DATE FROM<input id="heatDateFrom" type="date" /></label>
+          <label>DATE TO<input id="heatDateTo" type="date" /></label>
+          <label>OFFENCE TYPE<select id="heatOffence"><option value="">All offences</option></select></label>
+          <label>JUNCTION<select id="heatJunction"><option value="">All junctions</option></select></label>
+          <div class="filter-divider"></div>
+          <label class="toggle-row"><span>Show cluster boundaries</span><input id="clusterToggle" type="checkbox" checked /><i></i></label>
+          <label class="toggle-row"><span>Ghost next 4 hours</span><input id="ghostToggle" type="checkbox" checked /><i></i></label>
+          <div class="filter-summary"><small>SPATIAL WINDOW</small><strong>12.82°–13.08° N</strong><strong>77.50°–77.72° E</strong></div>
+        </aside>
+
+        <article class="interactive-map panel-wobble" id="heatmapStage">
+          <div id="heatmapCanvas" class="satellite-stage-map" aria-label="Interactive Bengaluru satellite traffic heatmap"></div>
+          <div class="map-mode-tabs" role="tablist"><button data-map-mode="density" class="is-active">Density</button><button data-map-mode="risk">Risk</button><button data-map-mode="congestion">Congestion</button><button data-map-mode="forecast">Forecast</button></div>
+          <div class="map-compass"><span>N</span><i></i></div>
+          <div class="map-scale">2 KM</div>
+          <div class="map-instruction">CLICK A PULSE TO INSPECT A JUNCTION</div>
+          <div class="forecast-ghost-label" id="ghostLabel">+4H GHOST LAYER</div>
+        </article>
+
+        <div class="timeline-scrubber">
+          <button id="timelinePlay" type="button" aria-label="Play timeline">▶</button>
+          <div class="timeline-copy"><small>FRIDAY</small><strong id="timelineLabel">18:00</strong></div>
+          <input id="timelineRange" type="range" min="0" max="23" value="18" />
+          <div class="timeline-ticks"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOTSPOTS -->
+    <section class="app-page" id="page-hotspots" data-page="hotspots">
+      <div class="page-title-row">
+        <div><p class="chapter-label"><span>03</span> / HOTSPOT ANALYTICS</p><h1>Find patterns that refuse to disappear.</h1><p>Separate structural city problems from temporary noise.</p></div>
+        <button class="compare-button" id="compareHotspots" type="button">＋ Compare two clusters</button>
+      </div>
+      <div class="hotspot-layout">
+        <article class="panel cluster-table-panel">
+          <div class="panel-head"><div><small>HDBSCAN CLUSTERS</small><h2>Persistent pressure zones.</h2></div><span id="clusterCount">— clusters</span></div>
+          <div class="table-toolbar"><input id="clusterSearch" type="search" placeholder="Search junction or zone…" /><select id="persistenceFilter"><option value="0">All persistence</option><option value="0.7">Structural only</option><option value="0.85">Very persistent</option></select></div>
+          <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Rank</th><th>Cluster</th><th>Persistence</th><th>Risk</th><th>Violations</th><th>Trend</th></tr></thead><tbody id="clusterTableBody"></tbody></table></div>
+        </article>
+        <article class="panel cluster-detail-panel" id="clusterDetailPanel">
+          <div class="cluster-detail-hero">
+            <div><small>SELECTED CLUSTER</small><h2 id="clusterDetailName">Silk Board</h2><p id="clusterDetailMeta">C01 · STRUCTURAL HOTSPOT</p></div>
+            <div class="mega-risk"><strong id="clusterDetailRisk">88</strong><span>RISK</span></div>
+          </div>
+          <div class="cluster-mini-map"><div id="clusterCanvas" class="satellite-mini-map" aria-label="Selected hotspot on Bengaluru satellite map"></div><div class="map-stamp">STRUCTURAL ZONE</div></div>
+          <div class="detail-metrics"><div><small>PERSISTENCE</small><strong id="detailPersistence">0.94</strong></div><div><small>VIOLATIONS</small><strong id="detailViolations">2,184</strong></div><div><small>CONGESTION</small><strong id="detailCongestion">91</strong></div></div>
+          <div class="detail-two-col">
+            <div><small class="mini-label">HOUR × DAY PRESSURE</small><div id="hourDayMatrix" class="hour-day-matrix"></div></div>
+            <div><small class="mini-label">WHY THIS CLUSTER?</small><div id="clusterShap" class="shap-list"></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FORECAST -->
+    <section class="app-page" id="page-forecast" data-page="forecast">
+      <div class="page-title-row">
+        <div><p class="chapter-label"><span>04</span> / FORECAST</p><h1>See the pressure arriving.</h1><p>Quantile forecasts show the likely path and the uncertainty around it—not a false point estimate.</p></div>
+        <div class="forecast-controls"><label>JUNCTION<select id="forecastJunction"></select></label><div class="segmented" id="horizonToggle"><button data-horizon="24h" class="is-active">24 HOURS</button><button data-horizon="7d">7 DAYS</button></div></div>
+      </div>
+      <div class="forecast-grid">
+        <article class="panel forecast-main-panel">
+          <div class="panel-head"><div><small>P10 / P50 / P90</small><h2 id="forecastTitle">Silk Board pressure forecast.</h2></div><div class="model-pills"><button class="is-active">ENSEMBLE</button><button>PROPHET</button><button>LSTM</button></div></div>
+          <svg id="forecastChart" class="chart-svg forecast-chart" viewBox="0 0 1040 430" role="img" aria-label="Forecast confidence band chart"></svg>
+          <div class="forecast-legend"><span><i class="legend-history"></i> Recent actual</span><span><i class="legend-p50"></i> P50 likely</span><span><i class="legend-band"></i> P10–P90 range</span></div>
+        </article>
+        <article class="panel risk-calendar-panel"><div class="panel-head"><div><small>7-DAY RISK CALENDAR</small><h2>When to act.</h2></div></div><div id="riskCalendar" class="risk-calendar"></div></article>
+        <article class="panel accuracy-panel"><div class="panel-head"><div><small>BACKTEST HEALTH</small><h2>Model honesty.</h2></div><span class="healthy-pill">HEALTHY</span></div><div class="accuracy-readout"><strong>92.8%</strong><span>directional accuracy</span></div><div class="accuracy-bars"><div><span>MAPE</span><i><b style="--v:74%"></b></i><strong>7.2%</strong></div><div><span>RMSE</span><i><b style="--v:62%"></b></i><strong>3.8</strong></div><div><span>Coverage</span><i><b style="--v:91%"></b></i><strong>91%</strong></div></div></article>
+        <article class="panel upcoming-panel"><div class="panel-head"><div><small>UPCOMING RISK WINDOWS</small><h2>Seven-day signal.</h2></div></div><div id="riskTimeline" class="risk-timeline"></div></article>
+      </div>
+    </section>
+
+    <!-- RECOMMENDATIONS -->
+    <section class="app-page" id="page-recommendations" data-page="recommendations">
+      <div class="page-title-row">
+        <div><p class="chapter-label"><span>05</span> / PATROL RECOMMENDATIONS</p><h1>Turn prediction into a move.</h1><p>An explainable allocation plan—ranked by risk, centrality and diminishing returns.</p></div>
+        <div class="solver-badge"><i></i><span>SAFE PATH</span><strong>OPTIMIZER READY</strong></div>
+      </div>
+      <div class="recommendation-controls panel-wobble">
+        <label>SHIFT<select id="recommendShift"><option>Morning</option><option>Afternoon</option><option selected>Evening</option><option>Night</option></select></label>
+        <label>DATE<input id="recommendDate" type="date" /></label>
+        <label class="officer-control">TOTAL OFFICERS<div><input id="recommendOfficers" type="range" min="5" max="100" value="20" /><strong id="recommendOfficerValue">20</strong></div></label>
+        <button class="primary-cta" id="generateRecommendations" type="button">Generate allocation <b>→</b></button>
+      </div>
+      <div class="recommendations-layout">
+        <article class="recommendation-feed" id="recommendationFeed"><div class="loading-card"></div><div class="loading-card"></div><div class="loading-card"></div></article>
+        <article class="panel deployment-map-panel"><div class="panel-head"><div><small>DEPLOYMENT MAP</small><h2>Officers where they matter.</h2></div><span id="coveredZones">— zones</span></div><div id="deploymentCanvas" class="deployment-satellite-map" aria-label="Recommended officer deployment on Bengaluru satellite map"></div><div class="deployment-legend"><span><i class="pin-critical"></i>critical</span><span><i class="pin-high"></i>high</span><span><i class="pin-medium"></i>medium</span><span>pin size = officers</span></div></article>
+      </div>
+      <div class="officer-roster panel"><div class="panel-head"><div><small>OFFICER ROSTER</small><h2>Allocation at a glance.</h2></div><span id="allocationSummary">—</span></div><div id="officerTiles" class="officer-tiles"></div></div>
+    </section>
+
+    <!-- SIMULATION -->
+    <section class="app-page" id="page-simulation" data-page="simulation">
+      <div class="page-title-row">
+        <div><p class="chapter-label"><span>06</span> / DIGITAL TWIN</p><h1>Test the decision before the city feels it.</h1><p>Change deployment, duration and shift. The twin estimates direct deterrence and downstream relief.</p></div>
+        <button class="secondary-cta" id="useRecommendedScenario" type="button">Use optimizer plan <b>↗</b></button>
+      </div>
+      <div class="simulation-grid">
+        <aside class="sim-control-panel panel-wobble">
+          <div class="panel-head"><div><small>SCENARIO CONTROLS</small><h2>Build a what-if.</h2></div></div>
+          <label>FOCUS ZONE<select id="simZone"></select></label>
+          <label class="range-control"><span>OFFICERS</span><strong id="simOfficerValue">20</strong><input id="simOfficers" type="range" min="0" max="60" value="20" /></label>
+          <label class="range-control"><span>WINDOW HOURS</span><strong id="simDurationValue">4h</strong><input id="simDuration" type="range" min="1" max="24" value="4" /></label>
+          <label>SHIFT<select id="simShift"><option>Morning</option><option>Afternoon</option><option selected>Evening</option><option>Night</option></select></label>
+          <label>DATE<input id="simDate" type="date" /></label>
+          <button class="primary-cta run-sim" id="runSimulation" type="button"><span>Run digital twin</span><b>▶</b></button>
+          <div class="scenario-list"><small>SAVED SCENARIOS</small><button data-scenario="balanced"><span>Balanced evening</span><b>20 officers</b></button><button data-scenario="surge"><span>East corridor surge</span><b>42 officers</b></button></div>
+        </aside>
+
+        <article class="before-after-panel panel-wobble">
+          <div class="sim-map-label before-label"><small>BEFORE</small><strong id="beforeRisk">86</strong></div>
+          <div class="sim-map-label after-label"><small>AFTER</small><strong id="afterRisk">61</strong></div>
+          <div id="beforeMap" class="sim-map before-map" aria-label="Current Bengaluru satellite traffic state"></div>
+          <div class="after-map-clip" id="afterMapClip"><div id="afterMap" class="sim-map" aria-label="Projected Bengaluru satellite traffic state"></div></div>
+          <button class="compare-handle" id="compareHandle" type="button" aria-label="Drag to compare"><span>↔</span></button>
+          <div class="sim-map-caption">DRAG TO REVEAL PROJECTED STATE</div>
+        </article>
+
+        <aside class="impact-panel panel-wobble">
+          <div class="panel-head"><div><small>PROJECTED IMPACT</small><h2>The city after your move.</h2></div></div>
+          <div class="impact-main"><small>VIOLATION REDUCTION</small><strong><span id="impactReduction">29.7</span>%</strong><p>within the selected window</p></div>
+          <div class="impact-grid"><div><small>CONGESTION RELIEF</small><strong><span id="impactCongestion">21.9</span>%</strong></div><div><small>AFFECTED JUNCTIONS</small><strong id="impactJunctions">12</strong></div></div>
+          <div class="confidence-card"><small>CONFIDENCE BAND</small><div><span>P10 <b id="impactP10">27.0%</b></span><span>P50 <b id="impactP50">29.7%</b></span><span>P90 <b id="impactP90">32.8%</b></span></div><i><b id="confidenceMarker"></b></i></div>
+          <div class="impact-note"><i>◎</i><p id="impactPlainText">This allocation is expected to reduce the sharpest pressure at Silk Board while spreading relief to nearby corridors.</p></div>
+        </aside>
+      </div>
+      <article class="panel simulation-table-panel"><div class="panel-head"><div><small>PER-JUNCTION RESULT</small><h2>Where the effect travels.</h2></div><button id="exportSimulation" type="button">Export CSV ↗</button></div><div class="data-table-wrap"><table class="data-table"><thead><tr><th>Junction</th><th>Officers</th><th>Risk before</th><th>Risk after</th><th>Reduction</th><th>Spillover</th></tr></thead><tbody id="simulationTable"></tbody></table></div></article>
+    </section>
+  </main>
+
+  <aside class="signal-courier" id="signalCourier" aria-live="polite">
+    <button id="courierToggle" type="button" aria-label="Open BTIP signal courier"><span class="courier-face"><i></i><i></i><b></b></span><em>1</em></button>
+    <div class="courier-bubble">
+      <div class="courier-head"><small>SIGNAL COURIER</small><button id="courierClose" type="button">×</button></div>
+      <p id="courierMessage">I found a stronger-than-usual evening pattern near Silk Board. Open the live map to inspect it.</p>
+      <button id="courierAction" type="button">SHOW ME <b>↗</b></button>
+    </div>
+  </aside>
+
+  <div class="command-palette" id="commandPalette" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="command-box"><div class="command-search"><span>⌘</span><input id="commandInput" type="search" placeholder="Jump to a page or run an action…" /><kbd>ESC</kbd></div><div class="command-results" id="commandResults"></div></div>
+  </div>
+
+  <dialog class="login-dialog" id="loginDialog">
+    <form method="dialog" class="login-card" id="loginForm">
+      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+      <div class="login-illustration"><div class="login-orbit"><i></i><i></i><i></i><span>BTIP</span></div></div>
+      <div class="login-copy"><small>ROLE-BASED ACCESS</small><h2>Enter the command center.</h2><p>Use a demo account or connect your own authentication later.</p>
+        <label>USERNAME<input id="loginUsername" autocomplete="username" value="commander" /></label>
+        <label>PASSWORD<input id="loginPassword" type="password" autocomplete="current-password" value="gridlock2026" /></label>
+        <button class="primary-cta" id="loginSubmit" type="submit" value="default">Sign in <b>→</b></button>
+        <p class="login-error" id="loginError"></p>
+        <div class="demo-credentials"><span><b>Commander</b> commander / gridlock2026</span><span><b>Analyst</b> analyst / analyse2026</span><span><b>Officer</b> officer / patrol2026</span></div>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="zone-drawer" id="zoneDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" type="button">×</button>
+    <div class="drawer-route"><span id="drawerCluster">C01</span><i></i><span id="drawerZoneId">J001</span></div>
+    <small>JUNCTION INTELLIGENCE</small><h2 id="drawerTitle">Silk Board</h2><p id="drawerCoords">12.9177° N · 77.6233° E</p>
+    <div class="drawer-risk"><strong id="drawerRisk">88</strong><span><b>CRITICAL</b><small>evening risk score</small></span></div>
+    <div class="drawer-mini-trend" id="drawerMiniTrend"></div>
+    <h3>Why this zone?</h3><div class="shap-list" id="drawerShap"></div>
+    <div class="confidence-card"><small>FORECAST CONFIDENCE</small><div><span>P10 <b id="drawerP10">17.0</b></span><span>P50 <b id="drawerP50">20.1</b></span><span>P90 <b id="drawerP90">23.0</b></span></div></div>
+    <a class="primary-cta" id="drawerForecastLink" href="#/forecast">View full forecast <b>↗</b></a>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <div class="tour-overlay" id="tourOverlay"><div class="tour-card"><small id="tourStepLabel">STEP 1 OF 5</small><h2 id="tourTitle">The city pulse</h2><p id="tourText">Start with one clear picture of current city risk.</p><div><button id="tourSkip" type="button">Skip</button><button id="tourNext" type="button">Next <b>→</b></button></div></div></div>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#/overview" data-route="overview">◎<span>Home</span></a><a href="#/heatmap" data-route="heatmap">⌁<span>Map</span></a><a href="#/hotspots" data-route="hotspots">◉<span>Zones</span></a><a href="#/recommendations" data-route="recommendations">✦<span>Patrol</span></a><a href="#/simulation" data-route="simulation">◫<span>Twin</span></a>
+  </nav>
+
+  <script src="assets/satellite-map.js" defer></script>
+  <script src="assets/app.js" defer></script>
+  <script src="assets/event-intelligence.js" defer></script>
+</body>
+</html>

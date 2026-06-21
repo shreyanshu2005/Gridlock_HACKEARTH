@@ -1,0 +1,102 @@
+{
+  "index.previous-draft.html": {
+    "sha256": "855cf336745a6f5b119acda001daf1532897342acb08b2391ac893e59d739337",
+    "bytes": 27717,
+    "status": "preserved"
+  },
+  "index.html": {
+    "sha256": "29c7f488883ebd0cfb0d79c1b786dabd6fc0ec5fcf5a6c1ae1987b56483e0f26",
+    "bytes": 27843,
+    "status": "additive_or_wrapper"
+  },
+  "assets/app.js": {
+    "sha256": "3609cbaed707ef1f5e74c68a6afdbb305e57b207f491bc58bc9758b1b16f12e0",
+    "bytes": 70722,
+    "status": "preserved"
+  },
+  "assets/styles.css": {
+    "sha256": "64043547c808dc9092f26ed560b340857a5f4f5885930097fb47187c7aac3381",
+    "bytes": 63982,
+    "status": "preserved"
+  },
+  "assets/satellite-map.js": {
+    "sha256": "2fe3027056cd264b68397ac0015403e511308fa7f361426c097f5eab7f9e54be",
+    "bytes": 24269,
+    "status": "preserved"
+  },
+  "assets/favicon.svg": {
+    "sha256": "08bde4ef039185d23d4c05e56b559a75e1a05c2aa909e98c7acc757b24141078",
+    "bytes": 354,
+    "status": "preserved"
+  },
+  "assets/event-intelligence.css": {
+    "sha256": "94a3b14998ec22222bf027039cc76abe9cc6d6044166bcb292a024c21fea5e5a",
+    "bytes": 27237,
+    "status": "additive_or_wrapper"
+  },
+  "assets/event-intelligence.js": {
+    "sha256": "00c89bcb9a83b11e52cc856beaadba24ca26877b5c2939f6a9159a26d2f9f009",
+    "bytes": 58725,
+    "status": "additive_or_wrapper"
+  },
+  "backend/events/__init__.py": {
+    "sha256": "ba61f1caac3e74528f227d93517dd3e75ef3de10a79745367fb52dc0372abd18",
+    "bytes": 214,
+    "status": "additive_or_wrapper"
+  },
+  "backend/events/schemas.py": {
+    "sha256": "9a916bf67510a1b6651fa13e71136254b80dd57d27286087bee7febcf9bdd2ac",
+    "bytes": 2734,
+    "status": "additive_or_wrapper"
+  },
+  "backend/events/service.py": {
+    "sha256": "7f8f3a8e22da6848f269f3f67c14443c35fba855433923b415e06ef1bb845907",
+    "bytes": 35728,
+    "status": "additive_or_wrapper"
+  },
+  "backend/events/routes.py": {
+    "sha256": "d439f1ffb324c2a9e2d89e8b23209926cc31a938431c1d2e78d8d88a2a33b6e8",
+    "bytes": 2473,
+    "status": "additive_or_wrapper"
+  },
+  "backend/tests/test_events.py": {
+    "sha256": "5e78c50aaa70cfde3159f2b92d21eb16ab7c5b006e364735f4280bc8da4c73a2",
+    "bytes": 4436,
+    "status": "additive_or_wrapper"
+  },
+  "README.md": {
+    "sha256": "4a39f57e540341b8d4f0e9a8083295c9bbc6506cf37e33c8cc6eb1191de654bc",
+    "bytes": 5317,
+    "status": "additive_or_wrapper"
+  },
+  "EVENT_DRIVEN_CONGESTION_REPORT.md": {
+    "sha256": "98cbff8fa8400af5cfb2564ba7677a038cfd15e125773f419b022264bcf8e04f",
+    "bytes": 4516,
+    "status": "additive_or_wrapper"
+  },
+  "ADDITIVE_CHANGELOG.md": {
+    "sha256": "1c49cf89e434927e0f1d4eb742bf1069f1959442906a779e795eee62bce76f2e",
+    "bytes": 1146,
+    "status": "additive_or_wrapper"
+  },
+  "VALIDATION_REPORT.md": {
+    "sha256": "8158a265da43bba08fe950cf43e55fa740a9c3bea99eaf959fd48a7e0afc0a6f",
+    "bytes": 2811,
+    "status": "additive_or_wrapper"
+  },
+  "_metadata": {
+    "extension": "Event-Driven Congestion",
+    "original_frontend_core_changed": false,
+    "original_backend_routes_replaced": false,
+    "new_frontend_routes": [
+      "events",
+      "event-map",
+      "event-plan",
+      "event-twin",
+      "post-event",
+      "event-replay"
+    ],
+    "new_api_prefix": "/api/v1/events",
+    "validation": "See VALIDATION_REPORT.md"
+  }
+}
