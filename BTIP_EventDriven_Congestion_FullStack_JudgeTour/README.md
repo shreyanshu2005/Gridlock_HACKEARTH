@@ -178,45 +178,55 @@ To prove this isn't smoke and mirrors, BTIP can "rewind time": it picks a past e
 ## 🏗️ System Architecture
 
 > 🖼️ **[ADD IMAGE HERE — #9 (OPTIONAL): HAND-DRAWN OR EXPORTED ARCHITECTURE DIAGRAM]**
-> If you have a custom-designed architecture diagram (e.g. from Figma/Excalidraw), paste it here as well. The diagram below is a text-based Mermaid version that also renders directly on GitHub.
+> If you have a custom-designed architecture diagram (e.g. from Figma/Excalidraw), paste it here as well. The diagram below is a text-based Mermaid version that also renders directly on GitHub — styled for dark backgrounds so labels stay readable.
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': {
+  'background':'#0d1117',
+  'primaryColor':'#161b22',
+  'primaryTextColor':'#f0f6fc',
+  'primaryBorderColor':'#58a6ff',
+  'lineColor':'#8b949e',
+  'secondaryColor':'#161b22',
+  'tertiaryColor':'#161b22',
+  'fontSize':'15px'
+}}}%%
 flowchart TB
-    subgraph SRC["📡 Data Sources"]
-        A1[Historical Traffic & Violation Data]
-        A2[Event Metadata<br/>venue, attendance, type, weather]
-        A3[Real-Time Anomaly Signals<br/>speed drop, occupancy, crowd estimate]
+    subgraph SRC["📡 DATA SOURCES"]
+        A1["Historical Traffic<br/>& Violation Data"]
+        A2["Event Metadata<br/>venue · attendance · type · weather"]
+        A3["Real-Time Anomaly Signals<br/>speed drop · occupancy · crowd estimate"]
     end
 
-    subgraph CORE["🧠 BTIP Intelligence Core — FastAPI Backend"]
-        B1[Event Service<br/>Impact Forecast Engine]
-        B2[ML Models<br/>LightGBM · XGBoost · Prophet · LSTM · HDBSCAN · SHAP]
-        B3[Manpower Optimizer<br/>PuLP ILP]
-        B4[Barricade & Diversion Planner]
-        B5[Digital Twin Simulator<br/>graph diffusion + deterrence model]
-        B6[Post-Event Learning Engine]
+    subgraph CORE["🧠 BTIP INTELLIGENCE CORE — FASTAPI BACKEND"]
+        B1["Event Service<br/>Impact Forecast Engine"]
+        B2["ML Models<br/>LightGBM · XGBoost · Prophet · LSTM · HDBSCAN · SHAP"]
+        B3["Manpower Optimizer<br/>PuLP ILP"]
+        B4["Barricade & Diversion<br/>Planner"]
+        B5["Digital Twin Simulator<br/>graph diffusion + deterrence model"]
+        B6["Post-Event Learning<br/>Engine"]
     end
 
-    subgraph STORE["💾 Data & Model Layer"]
-        C1[(Processed Feature Store)]
-        C2[(Trained Model Artefacts)]
-        C3[(Event & Replay Records)]
+    subgraph STORE["💾 DATA & MODEL LAYER"]
+        C1[("Processed<br/>Feature Store")]
+        C2[("Trained Model<br/>Artefacts")]
+        C3[("Event & Replay<br/>Records")]
     end
 
-    subgraph UI["🖥️ Frontend — Satellite Command Centre"]
-        D1[Event Command Centre]
-        D2[Event Impact Satellite Map]
-        D3[Operational Response Plan View]
-        D4[Event Digital Twin Comparison]
-        D5[Post-Event Learning Dashboard]
-        D6[Historical Replay Viewer]
-        D7[Judge Tour Guide]
+    subgraph UI["🖥️ FRONTEND — SATELLITE COMMAND CENTRE"]
+        D1["Event Command<br/>Centre"]
+        D2["Event Impact<br/>Satellite Map"]
+        D3["Operational Response<br/>Plan View"]
+        D4["Event Digital Twin<br/>Comparison"]
+        D5["Post-Event Learning<br/>Dashboard"]
+        D6["Historical Replay<br/>Viewer"]
+        D7["Judge Tour<br/>Guide"]
     end
 
-    subgraph USERS["👥 Roles"]
-        E1[Commander — full control]
-        E2[Analyst — forecasts & learning]
-        E3[Officer — field deployment view]
+    subgraph USERS["👥 ROLES"]
+        E1["👑 Commander<br/>full control"]
+        E2["🔍 Analyst<br/>forecasts & learning"]
+        E3["👮 Officer<br/>field deployment view"]
     end
 
     A1 --> B1
@@ -244,14 +254,34 @@ flowchart TB
     E2 --> UI
     E3 --> UI
 
-    style SRC fill:#fff3e0,stroke:#fb8c00
-    style CORE fill:#e3f2fd,stroke:#1565c0
-    style STORE fill:#f3e5f5,stroke:#6a1b9a
-    style UI fill:#e8f5e9,stroke:#2e7d32
-    style USERS fill:#fce4ec,stroke:#ad1457
+    classDef srcNode fill:#3b2a00,stroke:#e3b341,stroke-width:2px,color:#ffe9a8
+    classDef coreNode fill:#0d2847,stroke:#58a6ff,stroke-width:2px,color:#cae8ff
+    classDef storeNode fill:#2d1b3d,stroke:#bc8cff,stroke-width:2px,color:#e9d5ff
+    classDef uiNode fill:#0d2e1f,stroke:#3fb950,stroke-width:2px,color:#b6f2c8
+    classDef usersNode fill:#3d1228,stroke:#f778ba,stroke-width:2px,color:#ffc9e3
+
+    class A1,A2,A3 srcNode
+    class B1,B2,B3,B4,B5,B6 coreNode
+    class C1,C2,C3 storeNode
+    class D1,D2,D3,D4,D5,D6,D7 uiNode
+    class E1,E2,E3 usersNode
+
+    style SRC fill:#1a1306,stroke:#e3b341,stroke-width:2px,color:#ffe9a8
+    style CORE fill:#06162b,stroke:#58a6ff,stroke-width:2px,color:#cae8ff
+    style STORE fill:#1c1227,stroke:#bc8cff,stroke-width:2px,color:#e9d5ff
+    style UI fill:#062014,stroke:#3fb950,stroke-width:2px,color:#b6f2c8
+    style USERS fill:#280a18,stroke:#f778ba,stroke-width:2px,color:#ffc9e3
 ```
 
-**Reading the diagram:** data flows in from the left (history + live events + anomaly signals), gets processed by the intelligence core in the middle (forecast → optimize → simulate → learn), is stored for reuse, and surfaces on the right as a set of satellite-map-based screens that Commanders, Analysts, and Officers each see according to their role.
+**Reading the diagram:** data flows in from the top (history + live events + anomaly signals), gets processed by the intelligence core (forecast → optimize → simulate → learn), is stored for reuse, and surfaces as a set of satellite-map-based screens that Commanders, Analysts, and Officers each see according to their role.
+
+| Layer | Color | What Lives Here |
+|---|---|---|
+| 🟡 Data Sources | Amber | Raw inputs — historical data, event metadata, anomaly signals |
+| 🔵 Intelligence Core | Blue | FastAPI backend — forecasting, optimization, simulation, learning |
+| 🟣 Data & Model Layer | Purple | Persisted feature store, trained models, event records |
+| 🟢 Frontend | Green | The satellite-map command centre screens judges interact with |
+| 🌸 Roles | Pink | Commander, Analyst, Officer — who sees what |
 
 ---
 
