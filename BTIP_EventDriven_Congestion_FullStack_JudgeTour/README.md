@@ -25,6 +25,7 @@
 
 ![License](https://img.shields.io/badge/License-Hackathon%20Demo-lightgrey?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Hackathon%20Ready-FF6F00?style=for-the-badge)
+[![Live Demo](https://img.shields.io/badge/🔗_Live_Demo-Click_Here-00C853?style=for-the-badge)](https://btip-whilefalse.netlify.app/)
 
 <br>
 
@@ -33,6 +34,16 @@
 <br>
 
  [Quick Start](#-how-to-run-this-project) ·  [Architecture](#%EF%B8%8F-system-architecture) ·  [Capabilities](#-key-capabilities) ·  [API](#-api-endpoints) ·  [Roadmap](#-future-roadmap)
+
+<br>
+
+###  🚀 Try It Live — No Setup Needed
+
+**[https://btip-whilefalse.netlify.app/](https://btip-whilefalse.netlify.app/)**
+
+<img src="images/qr-code-live-demo.png" alt="QR code linking to the BTIP live demo" width="160"/>
+
+*Scan with your phone, or click the link above, to open the live demo instantly.*
 
 <br>
 
