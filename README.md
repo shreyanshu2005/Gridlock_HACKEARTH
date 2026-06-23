@@ -37,7 +37,7 @@
 
 <br>
 
-###  🚀 Try It Live — No Setup Needed
+###   Try It Live — No Setup Needed
 
 **[https://btip-whilefalse.netlify.app/](https://btip-whilefalse.netlify.app/)**
 
@@ -300,7 +300,7 @@ flowchart TB
 
 ---
 
-## 🖼️ Screens & Visual Tour
+##  Screens & Visual Tour
 
 A quick gallery of every captured screen, in the order a judge would naturally walk through the product.
 
@@ -470,7 +470,7 @@ Work In Progress
 
 ##  Dataset
 
-> 🖼️ **[Dataset link]** 
+>  **[Dataset link]** 
 
 ```text
 Dataset Link: [https://uc.hackerearth.com/he-public-ap-south-1/jan%20to%20may%20police%20violation_anonymized791b166.csv]
