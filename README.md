@@ -426,7 +426,7 @@ http://127.0.0.1:8000/#/events
 ---
 
 ##  Demo Credentials
-Work In Progress
+**Work In Progress**
 
 | Role | Username | Password | Best For |
 |---|---|---|---|
