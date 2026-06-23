@@ -470,8 +470,6 @@ http://127.0.0.1:8000/#/events
 
 ##  Dataset
 
->  **[Dataset link]** 
-
 ```text
 Dataset Link: [https://uc.hackerearth.com/he-public-ap-south-1/jan%20to%20may%20police%20violation_anonymized791b166.csv]
 ```
